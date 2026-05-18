@@ -1,6 +1,6 @@
 import type { MemoryEntry } from "@blazity/ash-plugin-memory";
 import type { CompanyKnowledgeEntry } from "@blazity/company-context";
-import { ContextKey, setContext } from "experimental-ash/context";
+import { ContextKey, getContext, setContext } from "experimental-ash/context";
 
 export const CompanyContextKey = new ContextKey<readonly CompanyKnowledgeEntry[]>(
   "lead-enrichment.companyContext",
@@ -11,7 +11,9 @@ export const LeadPrerequisitesKey = new ContextKey<readonly string[]>(
 );
 
 export function markLeadPrerequisite(id: string): readonly string[] {
-  setContext(LeadPrerequisitesKey, [id]);
+  const current = getContext(LeadPrerequisitesKey) ?? [];
+  const next = Array.from(new Set([...current, id]));
+  setContext(LeadPrerequisitesKey, next);
 
-  return [id];
+  return next;
 }

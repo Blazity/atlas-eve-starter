@@ -8,6 +8,8 @@ const reviewRequestSchema = z.object({
   token: z.string().optional(),
 });
 
+type ReviewRequest = z.infer<typeof reviewRequestSchema>;
+
 function toNdjsonStream<T>(stream: ReadableStream<T>) {
   const encoder = new TextEncoder();
 
@@ -20,11 +22,68 @@ function toNdjsonStream<T>(stream: ReadableStream<T>) {
   );
 }
 
+async function parseReviewRequest(req: Request): Promise<
+  | {
+      readonly ok: true;
+      readonly value: ReviewRequest;
+    }
+  | {
+      readonly ok: false;
+      readonly response: Response;
+    }
+> {
+  const body = await readJsonBody(req);
+
+  if (!body.ok) return body;
+
+  const parsed = reviewRequestSchema.safeParse(body.value);
+
+  if (!parsed.success) {
+    return {
+      ok: false,
+      response: Response.json(
+        { error: "Invalid review request body.", issues: parsed.error.issues },
+        { status: 400 },
+      ),
+    };
+  }
+
+  return { ok: true, value: parsed.data };
+}
+
+async function readJsonBody(req: Request): Promise<
+  | {
+      readonly ok: true;
+      readonly value: unknown;
+    }
+  | {
+      readonly ok: false;
+      readonly response: Response;
+    }
+> {
+  const text = await req.text();
+
+  if (text.trim().length === 0) return { ok: true, value: {} };
+
+  try {
+    return { ok: true, value: JSON.parse(text) };
+  } catch {
+    return {
+      ok: false,
+      response: Response.json({ error: "Request body must be valid JSON." }, { status: 400 }),
+    };
+  }
+}
+
 export default defineChannel({
   kindHint: "http",
   routes: [
     POST("/review", async (req, { send }) => {
-      const body = reviewRequestSchema.parse(await req.json().catch(() => ({})));
+      const request = await parseReviewRequest(req);
+
+      if (!request.ok) return request.response;
+
+      const body = request.value;
       const prompt =
         body.message ??
         `Review candidate "${body.candidateId}" for role "${body.roleId}". Use the rubric-backed path and return evidence, scorecard, risks, and limitations.`;

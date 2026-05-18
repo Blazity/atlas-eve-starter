@@ -18,8 +18,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "experimental-ash": "0.16.2",
-    "gray-matter": "4.0.3"
+    "experimental-ash": "0.16.2"
   },
   "devDependencies": {
     "vitest": "4.1.6"

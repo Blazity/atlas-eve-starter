@@ -7,6 +7,8 @@ const enrichRequestSchema = z.object({
   token: z.string().optional(),
 });
 
+type EnrichRequest = z.infer<typeof enrichRequestSchema>;
+
 function toNdjsonStream<T>(stream: ReadableStream<T>) {
   const encoder = new TextEncoder();
 
@@ -19,11 +21,68 @@ function toNdjsonStream<T>(stream: ReadableStream<T>) {
   );
 }
 
+async function parseEnrichRequest(req: Request): Promise<
+  | {
+      readonly ok: true;
+      readonly value: EnrichRequest;
+    }
+  | {
+      readonly ok: false;
+      readonly response: Response;
+    }
+> {
+  const body = await readJsonBody(req);
+
+  if (!body.ok) return body;
+
+  const parsed = enrichRequestSchema.safeParse(body.value);
+
+  if (!parsed.success) {
+    return {
+      ok: false,
+      response: Response.json(
+        { error: "Invalid enrichment request body.", issues: parsed.error.issues },
+        { status: 400 },
+      ),
+    };
+  }
+
+  return { ok: true, value: parsed.data };
+}
+
+async function readJsonBody(req: Request): Promise<
+  | {
+      readonly ok: true;
+      readonly value: unknown;
+    }
+  | {
+      readonly ok: false;
+      readonly response: Response;
+    }
+> {
+  const text = await req.text();
+
+  if (text.trim().length === 0) return { ok: true, value: {} };
+
+  try {
+    return { ok: true, value: JSON.parse(text) };
+  } catch {
+    return {
+      ok: false,
+      response: Response.json({ error: "Request body must be valid JSON." }, { status: 400 }),
+    };
+  }
+}
+
 export default defineChannel({
   kindHint: "http",
   routes: [
     POST("/enrich", async (req, { send }) => {
-      const body = enrichRequestSchema.parse(await req.json().catch(() => ({})));
+      const request = await parseEnrichRequest(req);
+
+      if (!request.ok) return request.response;
+
+      const body = request.value;
       const prompt =
         body.message ??
         `Enrich synthetic lead "${body.leadId}" using explicit shared company context and produce a fit score.`;

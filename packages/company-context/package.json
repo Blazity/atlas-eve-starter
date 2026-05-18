@@ -17,9 +17,6 @@
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run"
   },
-  "dependencies": {
-    "gray-matter": "4.0.3"
-  },
   "devDependencies": {
     "vitest": "4.1.6"
   }

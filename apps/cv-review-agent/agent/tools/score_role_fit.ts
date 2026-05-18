@@ -2,7 +2,7 @@ import { getContext, setContext } from "experimental-ash/context";
 import { defineTool } from "experimental-ash/tools";
 import { z } from "zod";
 import { markReviewPrerequisite, ReviewPhaseKey, RoleRubricKey } from "../lib/context.js";
-import { scoreEvidenceAgainstRubric } from "../lib/cv-review.js";
+import { loadRoleRubric, scoreEvidenceAgainstRubric } from "../lib/cv-review.js";
 
 const evidenceSchema = z.object({
   id: z.string(),
@@ -18,12 +18,15 @@ export default defineTool({
     evidence: z.array(evidenceSchema),
   }),
   async execute({ roleId, evidence }) {
+    const rubric = getContext(RoleRubricKey) ?? (await loadRoleRubric(roleId));
+    setContext(RoleRubricKey, rubric);
+    markReviewPrerequisite("role-rubric-loaded");
     setContext(ReviewPhaseKey, "scoring");
-    const existingRubric = getContext(RoleRubricKey);
+
     const scorecard = await scoreEvidenceAgainstRubric({
       roleId,
       evidence,
-      ...(existingRubric === undefined ? {} : { rubric: existingRubric }),
+      rubric,
     });
     markReviewPrerequisite("role-fit-scored");
     setContext(ReviewPhaseKey, "complete");
