@@ -1,0 +1,26 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": []
+    },
+    "typecheck": {
+      "dependsOn": ["^build"],
+      "outputs": []
+    },
+    "test": {
+      "dependsOn": ["^build"],
+      "outputs": []
+    },
+    "ash:build": {
+      "dependsOn": ["^build"],
+      "outputs": [".ash/**"]
+    },
+    "eval": {
+      "dependsOn": ["^build"],
+      "outputs": [".ash/evals/**"],
+      "cache": false
+    }
+  }
+}
