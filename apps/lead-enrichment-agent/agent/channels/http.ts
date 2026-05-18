@@ -7,6 +7,18 @@ const enrichRequestSchema = z.object({
   token: z.string().optional(),
 });
 
+function toNdjsonStream<T>(stream: ReadableStream<T>) {
+  const encoder = new TextEncoder();
+
+  return stream.pipeThrough(
+    new TransformStream<T, Uint8Array>({
+      transform(event, controller) {
+        controller.enqueue(encoder.encode(`${JSON.stringify(event)}\n`));
+      },
+    }),
+  );
+}
+
 export default defineChannel({
   kindHint: "http",
   routes: [
@@ -34,7 +46,7 @@ export default defineChannel({
 
       const stream = await getSession(sessionId).getEventStream();
 
-      return new Response(stream as unknown as ReadableStream<Uint8Array>, {
+      return new Response(toNdjsonStream(stream), {
         headers: {
           "content-type": "application/x-ndjson",
         },

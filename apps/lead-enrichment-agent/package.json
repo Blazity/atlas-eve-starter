@@ -15,6 +15,7 @@
     "eval": "ash eval --all --skip-report"
   },
   "dependencies": {
+    "@ai-sdk/openai": "4.0.0-canary.47",
     "@blazity/ash-plugin-memory": "workspace:*",
     "@blazity/ash-plugin-observability": "workspace:*",
     "@blazity/company-context": "workspace:*",

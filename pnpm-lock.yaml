@@ -29,6 +29,9 @@ importers:
 
   apps/cv-review-agent:
     dependencies:
+      '@ai-sdk/openai':
+        specifier: 4.0.0-canary.47
+        version: 4.0.0-canary.47(zod@4.4.3)
       '@blazity/ash-plugin-governance':
         specifier: workspace:*
         version: link:../../packages/ash-plugin-governance
@@ -51,6 +54,9 @@ importers:
 
   apps/lead-enrichment-agent:
     dependencies:
+      '@ai-sdk/openai':
+        specifier: 4.0.0-canary.47
+        version: 4.0.0-canary.47(zod@4.4.3)
       '@blazity/ash-plugin-memory':
         specifier: workspace:*
         version: link:../../packages/ash-plugin-memory
@@ -118,6 +124,18 @@ packages:
 
   '@ai-sdk/gateway@4.0.0-canary.81':
     resolution: {integrity: sha512-+I3Mk6bhhlq+jO/g2f7zZ5cupSf3DxWxiW2Yfj9JI9FG9gy8tefwv56jvC5kDHQiJOw7++WzezMRzDvERvPRjg==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      zod: ^3.25.76 || ^4.1.8
+
+  '@ai-sdk/openai@4.0.0-canary.47':
+    resolution: {integrity: sha512-bEwVbnLWvLNSPMpYZhtdW6PhUQXKtlhnfyEtE/sfR8jBlTsZWjlWgjwSERt+pHUdVkkcmxj3CmuU86HwC7s4YA==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      zod: ^3.25.76 || ^4.1.8
+
+  '@ai-sdk/provider-utils@5.0.0-canary.32':
+    resolution: {integrity: sha512-Y7N7E6aDyaVu86bik5T/2+kknEaageLASe6IaUkp8xlBr17U0PXSQ4WjNBZ+8L3sgwiLif1dhwz1FJTdV8TASA==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
@@ -923,6 +941,20 @@ snapshots:
       '@ai-sdk/provider': 4.0.0-canary.16
       '@ai-sdk/provider-utils': 5.0.0-canary.40(zod@4.4.3)
       '@vercel/oidc': 3.2.0
+      zod: 4.4.3
+
+  '@ai-sdk/openai@4.0.0-canary.47(zod@4.4.3)':
+    dependencies:
+      '@ai-sdk/provider': 4.0.0-canary.16
+      '@ai-sdk/provider-utils': 5.0.0-canary.32(zod@4.4.3)
+      zod: 4.4.3
+
+  '@ai-sdk/provider-utils@5.0.0-canary.32(zod@4.4.3)':
+    dependencies:
+      '@ai-sdk/provider': 4.0.0-canary.16
+      '@standard-schema/spec': 1.1.0
+      '@workflow/serde': 4.1.0
+      eventsource-parser: 3.0.8
       zod: 4.4.3
 
   '@ai-sdk/provider-utils@5.0.0-canary.40(zod@4.4.3)':
