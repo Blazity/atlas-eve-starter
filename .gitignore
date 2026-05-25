@@ -6,3 +6,16 @@ apps/*/.output/
 dist/
 coverage/
 .DS_Store
+
+# Local runtime, editor, deployment, and secret state.
+.env
+.env.*
+**/.env
+**/.env.*
+!.env.example
+!**/.env.example
+.vercel/
+**/.vercel/
+.workflow-data/
+**/.workflow-data/
+.vscode/
