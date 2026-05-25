@@ -56,7 +56,18 @@ curl -X POST http://localhost:3000/review \
 ```
 
 The app demonstrates candidate profile loading, role/rubric loading, deterministic rubric-backed
-scoring, and three subagents: evidence extraction, role-fit scoring, and compliance review.
+scoring, Slack delivery, and three subagents: evidence extraction, role-fit scoring, and compliance
+review.
+
+Slack setup:
+
+```bash
+cp apps/cv-review-agent/.env.example apps/cv-review-agent/.env.local
+pnpm --filter @blazity/cv-review-agent test -- agent/lib/slack-review.test.ts
+```
+
+See [docs/cv-review-slack-setup.md](./docs/cv-review-slack-setup.md) for the Vercel Connect,
+Slack scopes, webhook route, and deployment checklist.
 
 ### Lead Enrichment Agent
 
@@ -87,7 +98,6 @@ They are not part of default CI because model-backed runs need credentials and c
 ## Not Included In V1
 
 - Dashboard
-- Real Slack integration
 - Database or vector store
 - Auth provider
 - Production credentials

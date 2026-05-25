@@ -41,6 +41,9 @@ importers:
       '@blazity/ash-plugin-observability':
         specifier: workspace:*
         version: link:../../packages/ash-plugin-observability
+      '@vercel/connect':
+        specifier: 0.0.4-alpha.8
+        version: 0.0.4-alpha.8(experimental-ash@0.16.2(ai@7.0.0-canary.138(zod@4.4.3))(vite@8.0.13(@types/node@24.12.4)))
       experimental-ash:
         specifier: 0.16.2
         version: 0.16.2(ai@7.0.0-canary.138(zod@4.4.3))(vite@8.0.13(@types/node@24.12.4))
@@ -356,6 +359,20 @@ packages:
 
   '@types/node@24.12.4':
     resolution: {integrity: sha512-GUUEShf+PBCGW2KaXwcIt3Yk+e3pkKwWKb9GSyM9WQVE+ep2jzmHdGsHzu4wgcZy5fN9FBdVzjpBQsYlpfpgLA==}
+
+  '@vercel/connect@0.0.4-alpha.8':
+    resolution: {integrity: sha512-cYMi8ICa46ik7Q9mFgA/8M7fYPzeNwSQnKotaOtyUkwzlC4pyxMj/H0TrNtnEQy/zcrXIwmRixD+P8elhFDmKg==}
+    peerDependencies:
+      '@auth/core': '>=0.37.0'
+      better-auth: '>=1.5.0'
+      experimental-ash: '>=0.8.2'
+    peerDependenciesMeta:
+      '@auth/core':
+        optional: true
+      better-auth:
+        optional: true
+      experimental-ash:
+        optional: true
 
   '@vercel/oidc@3.2.0':
     resolution: {integrity: sha512-UycprH3T6n3jH0k44NHMa7pnFHGu/N05MjojYr+Mc6I7obkoLIJujSWwin1pCvdy/eOxrI/l3uDLQsmcrOb4ug==}
@@ -1073,6 +1090,12 @@ snapshots:
   '@types/node@24.12.4':
     dependencies:
       undici-types: 7.16.0
+
+  '@vercel/connect@0.0.4-alpha.8(experimental-ash@0.16.2(ai@7.0.0-canary.138(zod@4.4.3))(vite@8.0.13(@types/node@24.12.4)))':
+    dependencies:
+      '@vercel/oidc': 3.2.0
+    optionalDependencies:
+      experimental-ash: 0.16.2(ai@7.0.0-canary.138(zod@4.4.3))(vite@8.0.13(@types/node@24.12.4))
 
   '@vercel/oidc@3.2.0': {}
 

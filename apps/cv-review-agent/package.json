@@ -19,6 +19,7 @@
     "@blazity/ash-plugin-governance": "workspace:*",
     "@blazity/ash-plugin-memory": "workspace:*",
     "@blazity/ash-plugin-observability": "workspace:*",
+    "@vercel/connect": "0.0.4-alpha.8",
     "experimental-ash": "0.16.2",
     "zod": "4.4.3"
   },
