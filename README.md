@@ -1,11 +1,40 @@
 # atlas-ash-starter
 
-Clean Ash starter monorepo for building production-style agents without domain-specific baggage.
-It keeps the first app intentionally small so teams can replace it with their own agent while
-retaining strict defaults, explicit boundaries, and reviewable AI Harness artifacts.
+✨ A clean Ash starter monorepo for building production-style agents without domain-specific
+baggage.
+
+The promise is simple: start from a small, reviewable template that already encodes practical agent
+defaults, then replace the example with your own agent. It gives teams enough structure to move
+quickly without hiding behavior in prompts, bundling plugins, or shipping a domain-specific demo
+that has to be deleted first.
 
 This repository contains no real customers, credentials, third-party integration data, private
 company records, or domain fixtures.
+
+## Why Use It
+
+- 🧭 **Clear agent boundaries**: app behavior lives under `apps/*/agent`, while shared contracts
+  live in explicit `packages/*` imports.
+- 🧰 **Strict starter defaults**: pnpm, Turborepo, TypeScript, Biome, Vitest, Husky, and
+  lint-staged are wired from the first commit.
+- 🧪 **Checks that fit daily work**: `pnpm check`, `pnpm typecheck`, and `pnpm test` run without
+  model credentials.
+- 🤖 **Ash-native example**: the starter includes one replaceable echo agent with instructions,
+  a deterministic tool, an HTTP channel, and a tiny eval.
+- 📦 **Monorepo-ready shape**: the example package shows how to share schemas or contracts without
+  making every package depend on Ash.
+- 🔐 **Permission-aware guidance**: the docs and repo-local skills push agent authors to review
+  tools, channels, auth, state, and deterministic boundaries before adding complexity.
+- 💸 **Opt-in evals**: model-backed Ash evals are available as a manual verification layer, not a
+  hidden pre-commit cost.
+- 🧹 **Generic by design**: no real customer data, no internal company context, no durable memory
+  plugin, no observability plugin, and no production integration assumptions.
+
+## What It Is Not
+
+This is not a full agent platform, production auth layer, memory system, observability stack, or
+deployment template. It is a disciplined starting point: small enough to understand, strict enough
+to review, and generic enough to adapt.
 
 ## Stack
 
