@@ -2,66 +2,63 @@
 
 ## What This Repo Is
 
-`atlas-ash-starter` is an Ash starter monorepo demonstrating production-style agent patterns. All
-data is synthetic — no real candidates, leads, customers, credentials, Slack data, or Blazity
-records.
+`atlas-ash-starter` is a clean Ash starter monorepo. It demonstrates strict, production-style agent
+defaults without embedding a domain-specific app.
 
-Status: the `experimental-ash` runtime and the `packages/ash-plugin-*` packages are experimental.
-Before public release they should be replaced with non-experimental equivalents; if an experimental
-dependency reaches a stable release after publication, replace it then.
+The repository is generic. Do not add real customers, credentials, third-party integration data,
+private company records, or internal-only context.
+
+Status: the Ash runtime is currently installed as `experimental-ash@0.16.2`. Treat that package as
+experimental until the framework provides a stable equivalent.
 
 ## Layout
 
-- `apps/cv-review-agent` — CV review with three subagents (evidence extraction, role-fit scoring,
-  compliance review) and Slack delivery via Vercel Connect.
-- `apps/lead-enrichment-agent` — lead enrichment that explicitly imports
-  `@blazity/company-context`.
-- `packages/ash-plugin-{governance,memory,observability}` — Ash hook/tool/context helpers. Named
-  "plugin" but not yet wired as `definePlugin` because `experimental-ash@0.16.2` does not export
-  `experimental-ash/plugins`.
-- `packages/ash-http-security` — shared HTTP channel hardening.
-- `packages/company-context` — typed accessors over shared synthetic Markdown knowledge.
-- `docs/` — architecture, deterministic boundaries, per-agent setup, Ash note.
+- `apps/example-agent` — replaceable echo agent used as a smoke example.
+- `packages/example` — replaceable shared contract package used by the example agent. It has no Ash
+  dependency.
+- `docs/` — architecture, deterministic-boundary, and agent-creation guidance.
+- `.ai/` — AI Harness artifacts, memory, decisions, plans, and repo-local skills.
 
-## Boundaries (Load-Bearing)
+## Boundaries
 
-- App-local fixtures live under `apps/<app>/data/`, outside the Ash-authored `agent/` root.
-- Shared context is **explicitly imported** by each app. No hidden global context injection.
-- Required steps live in tools or hooks. Skills are guidance only and must not be load-bearing.
-- Subagents live under `agent/subagents/<id>/` and do not inherit parent history or sandbox — the
-  delegation message must carry everything the subagent needs.
-- Subagents cannot own root channels or schedules.
+- App behavior lives under `apps/<app>/agent/`.
+- App-local data, when needed, lives outside `agent/`, usually under `apps/<app>/data/`.
+- Shared behavior or schemas live in explicit `packages/*` imports. Do not add hidden global context.
+- Required steps belong in tools, hooks, or code. Skills are guidance only and must not be
+  load-bearing.
+- Subagents, when added, live under `agent/subagents/<id>/`. They do not inherit parent history or
+  sandbox state, and cannot own root channels or schedules.
 
 ## Safe Commands
 
 Default checks need no model credentials:
 
-```
-pnpm check         # Biome format + lint
-pnpm typecheck     # turbo typecheck across workspace
-pnpm test          # turbo test (Vitest)
-pnpm build         # turbo build
-pnpm ash:build     # turbo ash:build
+```bash
+pnpm check
+pnpm typecheck
+pnpm test
+pnpm ash:build
 ```
 
-`pnpm eval` is **opt-in**: it runs Ash eval sessions, needs provider credentials, and may incur
-model cost. Do not run it as part of routine checks.
+`pnpm eval` is opt-in. It runs Ash eval sessions, needs provider credentials, and may incur model
+cost. Do not run it as part of routine checks, Husky hooks, or automatic local workflows.
 
 ## Conventions
 
 - pnpm 10 workspace, Turborepo, Node 24.x, TypeScript 6 with `strict`, `verbatimModuleSyntax`,
-  `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`.
-- Biome for format + lint (double quotes, trailing commas, 2-space indent, 100 col).
-- Conventional commits with a scope (`feat(cv): …`, `fix(agent): …`, `docs(starter): …`,
-  `chore(repo): …`).
+  `noUncheckedIndexedAccess`, and `exactOptionalPropertyTypes`.
+- Biome for format and lint: double quotes, trailing commas, 2-space indent, 100 col.
+- Package names use generic starter scopes such as `@repo/example`. Do not brand template packages
+  with internal company scopes.
+- Conventional commits with a scope, for example `refactor(starter): simplify ash template`.
 
 ## Where To Look First
 
+- `README.md` — quick starter overview and commands.
 - `docs/architecture.md` — monorepo, app, package, and subagent boundaries.
 - `docs/deterministic-boundaries.md` — skill-vs-tool-vs-hook decision rules.
-- `docs/adding-a-new-agent.md` — checklist for new app or subagent.
-- `.ai/skills/create-ash-agent/SKILL.md` — the agent-side skill for adding a new Ash app or
-  subagent.
+- `docs/adding-a-new-agent.md` — checklist for adding an app or subagent.
+- `.ai/skills/create-ash-agent/SKILL.md` — design-first skill for planning Ash agent additions.
 
 <!-- BEGIN AI-HARNESS: artifact-paths -->
 ## AI Harness Artifact Paths

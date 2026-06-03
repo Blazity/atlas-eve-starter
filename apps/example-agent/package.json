@@ -1,0 +1,26 @@
+{
+  "name": "@repo/example-agent",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "dev": "ash dev",
+    "build": "tsc -p tsconfig.json --noEmit",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "ash:build": "ash build",
+    "eval": "ash eval --all --skip-report"
+  },
+  "dependencies": {
+    "@ai-sdk/openai": "4.0.0-canary.47",
+    "@repo/example": "workspace:*",
+    "experimental-ash": "0.16.2",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "vitest": "4.1.6"
+  }
+}

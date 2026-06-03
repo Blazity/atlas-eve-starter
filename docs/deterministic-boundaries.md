@@ -1,37 +1,36 @@
 # Deterministic Boundaries
 
-Ash gives agents flexible model reasoning, tools, hooks, skills, channels, and subagents. Production
-systems should decide which work belongs in deterministic code and which work can stay in the
-agent loop.
+Ash gives agents flexible model reasoning, tools, hooks, skills, channels, evals, and subagents. A
+starter should make the boundary between model behavior and deterministic code easy to review.
 
 ## Skills Are Guidance
 
 Skills are on-demand instructions. They are useful for optional procedures, routing hints, and
-specialist guidance, but they are not a guarantee that a required operation happened.
+specialist guidance. They are not proof that a required operation happened.
 
 ## Required Steps Belong In Code
 
 If a step is mandatory, put it in authored code:
 
-- Tools execute typed business logic and API calls.
+- Tools execute typed deterministic logic and API calls.
 - Hooks seed or verify context around sessions and turns.
-- Shared packages centralize reusable checks.
-- Context keys make loaded state explicit.
+- Shared packages centralize reusable schemas and checks.
 
-In the CV app, scoring code loads the role rubric before scoring. This does not rely on prompt text.
+The example agent's echo response is built by `createEchoResponse`, not by prompt text. The model can
+decide when to call the tool, but the response shape and length calculation are deterministic.
 
-## Hooks Can Seed Or Check Context
+## Hooks Are For Lifecycle Boundaries
 
-Lifecycle hooks can load context or fail fast before a turn. Stream-event hooks observe accepted
-runtime events and are useful for local audit logs or metrics.
+Use hooks when an app must seed context, fail fast before a turn, or observe accepted stream events.
+Do not add hooks just to make the starter look feature-rich.
 
 ## Subagents Are Separate Specialist Contexts
 
-Use a subagent when a task needs a distinct role, prompt, tool set, or sandbox. Do not use a
-subagent just to load more instructions; a skill is cheaper when the root identity is enough.
+Use a subagent when a task needs a distinct role, prompt, tool set, or sandbox. Do not use a subagent
+just to load more instructions; a skill is cheaper when the root identity is enough.
 
-## Durable Workflows
+## Evals Are Opt-In
 
-Strict long-running state machines should live outside the free-form agent loop, for example in
-Vercel Workflow/WDK, with Ash triggering them through a tool or channel. This starter documents that
-boundary but does not implement Workflow/WDK in v1.
+Ash evals are useful for model-backed behavior checks, but they may need provider credentials and
+spend tokens. Keep them as explicit commands such as `pnpm eval`, never as pre-commit or automatic
+local checks.

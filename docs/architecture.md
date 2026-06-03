@@ -2,50 +2,63 @@
 
 ## Why A Monorepo
 
-`atlas-ash-starter` is a monorepo because the examples are separate Ash apps but share operating
-patterns. The workspace keeps app boundaries visible while letting local packages carry reusable
-governance, memory, observability, and shared context code.
+This starter keeps a monorepo shape even though it begins with one app. The point is to make the
+future app/package boundary obvious from the first commit: apps own Ash behavior, packages own
+explicit shared code.
 
 ## pnpm And Turborepo
 
-pnpm gives deterministic workspace linking for `@blazity/*` packages. Turborepo coordinates
-typecheck, test, build, Ash build, and eval tasks without hiding each package's local scripts.
+pnpm gives deterministic workspace linking for generic `@repo/*` packages. Turborepo coordinates
+workspace checks without hiding each package's local scripts.
 
-## App Boundaries
+## App Boundary
 
-Each app under `apps/` has its own `agent/` root, HTTP channel, instructions, tools, hooks, skills,
-subagents, fixtures, and evals. App-local fixture data stays under that app's app-root `data/`
-directory, outside the Ash-authored `agent/` slots.
+Apps live under `apps/*`. Each app owns its Ash `agent/` root:
 
-The examples are intentionally independent:
+- `agent/agent.ts`
+- `agent/instructions.md`
+- `agent/tools/*`
+- `agent/channels/*`
+- optional `agent/hooks/*`
+- optional `agent/subagents/*`
 
-- `cv-review-agent` owns CV fixtures, role fixtures, candidate review tools, and CV subagents.
-- `lead-enrichment-agent` owns lead fixtures and lead enrichment tools.
+The starter includes `apps/example-agent`, a replaceable echo app. It is intentionally small and
+domain-neutral.
 
-## Package Boundaries
+The example HTTP channel is unauthenticated only as a local demo default. Production apps should
+make auth, session ownership, and state boundaries explicit before exposing routes.
 
-Shared packages under `packages/` are reusable building blocks, not hidden global behavior:
+## Package Boundary
 
-- `@blazity/ash-plugin-governance` exposes deterministic prerequisite checks and hook helpers.
-- `@blazity/ash-plugin-memory` loads Markdown/frontmatter from explicit roots.
-- `@blazity/ash-plugin-observability` formats Ash stream events for local structured logging.
-- `@blazity/company-context` exposes typed helpers for shared synthetic Markdown knowledge.
+Packages live under `packages/*`. They are explicit local imports, not hidden global behavior.
 
-## Shared Context Boundary
+The starter includes `packages/example`, a tiny schema/type package used by the example app. It has
+no Ash dependency. Replace it with real shared contracts or remove it when a single app does not
+need shared code.
 
-Shared context must be imported explicitly. The lead app calls `@blazity/company-context`; the CV
-app does not receive that context implicitly. This prevents accidental context mixing and makes each
-agent's knowledge surface reviewable.
+## Deterministic Boundary
 
-## Plugin Boundary
+Required behavior belongs in deterministic code:
 
-Current docs include a v1-ready plugin research spec, but `experimental-ash@0.16.2` does not yet
-export `experimental-ash/plugins`. The local packages therefore expose Ash hook/tool/context helper
-surfaces that apps can register through normal Ash slots today. When the plugin subpath lands, these
-packages can wrap the same core behavior with `definePlugin`.
+- tools for typed executable behavior
+- hooks for lifecycle checks or event observation
+- shared packages for reusable logic and schemas
+
+Skills are guidance only. They can help an agent or developer follow a process, but they must not be
+the only place a required behavior is enforced.
 
 ## Subagent Boundary
 
-Local subagents live under `agent/subagents/<id>/`. Each subagent has its own `agent.ts`,
-`instructions.md`, tools, skills, and context. Parent agents must pass enough information in the
-delegation message because subagents do not inherit parent history or sandbox state.
+Local subagents, when added, live under `agent/subagents/<id>/`. Each subagent has its own
+`agent.ts`, `instructions.md`, tools, skills, and context.
+
+Subagents do not inherit parent history or sandbox state. Parent agents must pass enough
+information in the delegation message. Subagents cannot own root channels or schedules.
+
+## Plugin Boundary
+
+Durable memory and observability plugins are intentionally outside this starter. They should live in
+separate repositories and have their own manual testing and release process.
+
+If this template later references plugins, keep those references as opt-in integrations rather than
+built-in starter dependencies.
