@@ -12,6 +12,5 @@ Primary docs:
 - https://ash.labs.vercel.dev/docs/context-control
 - https://ash.labs.vercel.dev/docs/subagents
 
-The repo is private-first and early. Avoid overclaiming public API stability. In particular,
-`experimental-ash@0.16.2` does not yet expose the plugin API described in the current research docs,
-so local packages expose normal Ash hook/tool/context helpers for v1.
+The repo is private-first and early. Avoid overclaiming public API stability while
+`experimental-ash@0.16.2` is still the runtime dependency.

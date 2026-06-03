@@ -7,6 +7,7 @@ Ask only the questions that are not already answered:
 - Which steps must be deterministic?
 - Which tools or API calls are needed?
 - Which specialist boundaries deserve subagents?
+- Are proposed subagents app-local, or is there immediate reuse that justifies a shared package?
 - Which shared context is allowed?
 - Which app-local context is required?
 - Does the agent need memory, and is it shared or app-local?

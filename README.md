@@ -1,19 +1,18 @@
 # atlas-ash-starter
 
-Private-first Ash starter monorepo for serious but minimal production-style agent systems. It shows
-how to keep multiple Ash apps in one workspace while making boundaries explicit: app-local fixtures,
-shared Markdown context, reusable local packages, subagents, deterministic tools/hooks, and opt-in
-evals.
+Clean Ash starter monorepo for building production-style agents without domain-specific baggage.
+It keeps the first app intentionally small so teams can replace it with their own agent while
+retaining strict defaults, explicit boundaries, and reviewable AI Harness artifacts.
 
-This repository is synthetic. It contains no real candidates, leads, customers, credentials, Slack
-data, database data, or private Blazity records.
+This repository contains no real customers, credentials, third-party integration data, private
+company records, or domain fixtures.
 
 ## Stack
 
-- pnpm workspace
+- pnpm 10 workspace
 - Turborepo
 - Node 24.x
-- TypeScript
+- TypeScript 6
 - Biome
 - Vitest
 - Ash via `experimental-ash`
@@ -28,81 +27,69 @@ pnpm install
 
 ## Checks
 
+Routine checks do not require model credentials:
+
 ```bash
 pnpm check
 pnpm typecheck
 pnpm test
-pnpm build
+```
+
+Pre-PR or pre-publication Ash check:
+
+```bash
 pnpm ash:build
 ```
 
-Default checks do not require model credentials. `pnpm eval` is opt-in and can require provider
-credentials because it runs Ash eval sessions.
+`pnpm eval` is opt-in. It runs Ash eval sessions, can require provider credentials, and may spend
+tokens. Do not put it in Husky hooks, pre-commit checks, or automatic local workflows.
 
-## Apps
+## Workspace
 
-### CV Review Agent
+### `apps/example-agent`
 
-```bash
-pnpm --filter @blazity/cv-review-agent dev
-```
+A replaceable echo agent that demonstrates the starter wiring:
 
-HTTP example:
+- `agent/agent.ts` for the root Ash agent definition
+- `agent/instructions.md` for concise agent instructions
+- `agent/tools/echo.ts` for deterministic tool behavior
+- `agent/channels/http.ts` for a local HTTP ingress example
+- `evals/example.eval.ts` for an opt-in Ash eval
 
-```bash
-curl -X POST http://localhost:3000/review \
-  -H 'content-type: application/json' \
-  -d '{"candidateId":"candidate-a","roleId":"frontend-engineer"}'
-```
+The HTTP channel uses `auth: null` only because this is a local domain-neutral example. Add an
+explicit auth/session model before adapting the route for production.
 
-The app demonstrates candidate profile loading, role/rubric loading, deterministic rubric-backed
-scoring, Slack delivery, and three subagents: evidence extraction, role-fit scoring, and compliance
-review.
-
-Slack setup:
+Run it locally:
 
 ```bash
-cp apps/cv-review-agent/.env.example apps/cv-review-agent/.env.local
-pnpm --filter @blazity/cv-review-agent test -- agent/lib/slack-review.test.ts
+pnpm --filter @repo/example-agent dev
 ```
 
-See [docs/cv-review-slack-setup.md](./docs/cv-review-slack-setup.md) for the Vercel Connect,
-Slack scopes, webhook route, and deployment checklist.
+### `packages/example`
 
-### Lead Enrichment Agent
+A tiny shared contract package used by the example app. It intentionally has no Ash dependency.
+Replace it with your own shared schemas or remove it if your starter does not need a local package.
 
-```bash
-pnpm --filter @blazity/lead-enrichment-agent dev
-```
+## Starter Defaults
 
-HTTP example:
+- App behavior stays under each app's `agent/` root.
+- Shared code lives in explicit `packages/*` imports.
+- Required behavior belongs in tools, hooks, or code, not prompt-only text.
+- Skills are optional guidance and should not be load-bearing.
+- Unit tests cover deterministic code with Vitest.
+- Ash evals are model-backed/manual verification, not routine checks.
+- Biome is the formatter and linter. Prettier and ESLint are not included.
 
-```bash
-curl -X POST http://localhost:3000/enrich \
-  -H 'content-type: application/json' \
-  -d '{"leadId":"lead-a"}'
-```
+## Not Included
 
-The app demonstrates app-local lead fixtures plus explicit shared context loading from
-`@blazity/company-context`.
-
-## Evals
-
-```bash
-pnpm eval
-```
-
-Eval suites live under each app's `evals/` directory. They are intentionally small and synthetic.
-They are not part of default CI because model-backed runs need credentials and can cost money.
-
-## Not Included In V1
-
-- Dashboard
-- Database or vector store
+- Domain-specific examples
+- Durable memory plugin
+- Observability plugin
 - Auth provider
+- Database or vector store
 - Production credentials
-- Real candidate, lead, company, customer, or Blazity private data
-- Vercel Workflow/WDK implementation
+- Deployment-specific webhook setup
 
-See [docs/architecture.md](./docs/architecture.md) and
-[docs/deterministic-boundaries.md](./docs/deterministic-boundaries.md) for the boundary decisions.
+See [docs/architecture.md](./docs/architecture.md),
+[docs/adding-a-new-agent.md](./docs/adding-a-new-agent.md), and
+[docs/deterministic-boundaries.md](./docs/deterministic-boundaries.md) for the starter decisions.
