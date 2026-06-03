@@ -26,7 +26,7 @@
     "*.{js,jsx,ts,tsx,json,jsonc,md}": "biome format --write --no-errors-on-unmatched"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.15",
+    "@biomejs/biome": "2.4.16",
     "@types/node": "24.12.4",
     "husky": "9.1.7",
     "lint-staged": "17.0.7",
