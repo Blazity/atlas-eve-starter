@@ -15,7 +15,7 @@
     "eval": "ash eval --all --skip-report"
   },
   "dependencies": {
-    "@ai-sdk/openai": "4.0.0-canary.47",
+    "@ai-sdk/openai": "4.0.0-canary.66",
     "@repo/example": "workspace:*",
     "experimental-ash": "0.16.2",
     "zod": "4.4.3"
