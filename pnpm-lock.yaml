@@ -36,8 +36,8 @@ importers:
   apps/example-agent:
     dependencies:
       '@ai-sdk/openai':
-        specifier: 4.0.0-canary.47
-        version: 4.0.0-canary.47(zod@4.4.3)
+        specifier: 4.0.0-canary.66
+        version: 4.0.0-canary.66(zod@4.4.3)
       '@repo/example':
         specifier: workspace:*
         version: link:../../packages/example
@@ -70,15 +70,9 @@ packages:
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
 
-  '@ai-sdk/openai@4.0.0-canary.47':
-    resolution: {integrity: sha512-bEwVbnLWvLNSPMpYZhtdW6PhUQXKtlhnfyEtE/sfR8jBlTsZWjlWgjwSERt+pHUdVkkcmxj3CmuU86HwC7s4YA==}
-    engines: {node: '>=18'}
-    peerDependencies:
-      zod: ^3.25.76 || ^4.1.8
-
-  '@ai-sdk/provider-utils@5.0.0-canary.32':
-    resolution: {integrity: sha512-Y7N7E6aDyaVu86bik5T/2+kknEaageLASe6IaUkp8xlBr17U0PXSQ4WjNBZ+8L3sgwiLif1dhwz1FJTdV8TASA==}
-    engines: {node: '>=18'}
+  '@ai-sdk/openai@4.0.0-canary.66':
+    resolution: {integrity: sha512-2J/PUApG59mUE8suxBWA1Yxh3AskmAobTp/OKWoLrT3VXqaC/Su/zv5oWIluQZAetOJSKlKOQ2bZDEgahefs3w==}
+    engines: {node: '>=22'}
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
 
@@ -88,9 +82,19 @@ packages:
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
 
+  '@ai-sdk/provider-utils@5.0.0-canary.44':
+    resolution: {integrity: sha512-3h7gp8MEwXACWsW8ZPjzio53ynKq0jTNp4Hwr0BWdychMFzmkRRWyvijhg56JWxye16FU92SqQnfBoe2PN4I2A==}
+    engines: {node: '>=22'}
+    peerDependencies:
+      zod: ^3.25.76 || ^4.1.8
+
   '@ai-sdk/provider@4.0.0-canary.16':
     resolution: {integrity: sha512-IJKj5cOfRNbc1+rBIdyqFbsd4tjWY3wrM3y2D2YdZCHLi6qpS2yLN0P+ajEPCEnto6iZFWQHk28iRMwgvFSJRg==}
     engines: {node: '>=18'}
+
+  '@ai-sdk/provider@4.0.0-canary.17':
+    resolution: {integrity: sha512-m/rtalImeIt7deuQGkEHehqlIPOM8Sjb0cF1b1SJ3B6Re+WYgbUkOK9gY2SSro1YO8jYBRgTMPz2qYzPtIzAxQ==}
+    engines: {node: '>=22'}
 
   '@biomejs/biome@2.4.16':
     resolution: {integrity: sha512-x9ajFh1zChVybCiM3TN6OD4phAqLgtPZjFrZF+aTMYCPjwBO+k529TX7PPsAqtGNLeV4UgzwQnowEgS7bGmzcA==}
@@ -958,18 +962,10 @@ snapshots:
       '@vercel/oidc': 3.2.0
       zod: 4.4.3
 
-  '@ai-sdk/openai@4.0.0-canary.47(zod@4.4.3)':
+  '@ai-sdk/openai@4.0.0-canary.66(zod@4.4.3)':
     dependencies:
-      '@ai-sdk/provider': 4.0.0-canary.16
-      '@ai-sdk/provider-utils': 5.0.0-canary.32(zod@4.4.3)
-      zod: 4.4.3
-
-  '@ai-sdk/provider-utils@5.0.0-canary.32(zod@4.4.3)':
-    dependencies:
-      '@ai-sdk/provider': 4.0.0-canary.16
-      '@standard-schema/spec': 1.1.0
-      '@workflow/serde': 4.1.0
-      eventsource-parser: 3.0.8
+      '@ai-sdk/provider': 4.0.0-canary.17
+      '@ai-sdk/provider-utils': 5.0.0-canary.44(zod@4.4.3)
       zod: 4.4.3
 
   '@ai-sdk/provider-utils@5.0.0-canary.40(zod@4.4.3)':
@@ -980,7 +976,19 @@ snapshots:
       eventsource-parser: 3.0.8
       zod: 4.4.3
 
+  '@ai-sdk/provider-utils@5.0.0-canary.44(zod@4.4.3)':
+    dependencies:
+      '@ai-sdk/provider': 4.0.0-canary.17
+      '@standard-schema/spec': 1.1.0
+      '@workflow/serde': 4.1.0
+      eventsource-parser: 3.0.8
+      zod: 4.4.3
+
   '@ai-sdk/provider@4.0.0-canary.16':
+    dependencies:
+      json-schema: 0.4.0
+
+  '@ai-sdk/provider@4.0.0-canary.17':
     dependencies:
       json-schema: 0.4.0
 
