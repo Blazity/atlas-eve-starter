@@ -23,18 +23,12 @@ company records, or domain fixtures.
   a deterministic tool, an HTTP channel, and a tiny eval.
 - 📦 **Monorepo-ready shape**: the example package shows how to share schemas or contracts without
   making every package depend on Ash.
-- 🔐 **Permission-aware guidance**: the docs and repo-local skills push agent authors to review
-  tools, channels, auth, state, and deterministic boundaries before adding complexity.
+- 🔐 **Permission-aware workflow**: agent authors are prompted to review tools, channels, auth,
+  state, and deterministic boundaries before adding complexity.
 - 💸 **Opt-in evals**: model-backed Ash evals are available as a manual verification layer, not a
   hidden pre-commit cost.
 - 🧹 **Generic by design**: no real customer data, no internal company context, no durable memory
   plugin, no observability plugin, and no production integration assumptions.
-
-## What It Is Not
-
-This is not a full agent platform, production auth layer, memory system, observability stack, or
-deployment template. It is a disciplined starting point: small enough to understand, strict enough
-to review, and generic enough to adapt.
 
 ## Stack
 
@@ -118,7 +112,3 @@ Replace it with your own shared schemas or remove it if your starter does not ne
 - Database or vector store
 - Production credentials
 - Deployment-specific webhook setup
-
-See [docs/architecture.md](./docs/architecture.md),
-[docs/adding-a-new-agent.md](./docs/adding-a-new-agent.md), and
-[docs/deterministic-boundaries.md](./docs/deterministic-boundaries.md) for the starter decisions.
