@@ -16,7 +16,6 @@ experimental until the framework provides a stable equivalent.
 - `apps/example-agent` — replaceable echo agent used as a smoke example.
 - `packages/example` — replaceable shared contract package used by the example agent. It has no Ash
   dependency.
-- `docs/` — architecture, deterministic-boundary, and agent-creation guidance.
 - `.ai/` — AI Harness artifacts, memory, decisions, plans, and repo-local skills.
 
 ## Boundaries
@@ -55,9 +54,6 @@ cost. Do not run it as part of routine checks, Husky hooks, or automatic local w
 ## Where To Look First
 
 - `README.md` — quick starter overview and commands.
-- `docs/architecture.md` — monorepo, app, package, and subagent boundaries.
-- `docs/deterministic-boundaries.md` — skill-vs-tool-vs-hook decision rules.
-- `docs/adding-a-new-agent.md` — checklist for adding an app or subagent.
 - `.ai/skills/create-ash-agent/SKILL.md` — design-first skill for planning Ash agent additions.
 
 <!-- BEGIN AI-HARNESS: artifact-paths -->
