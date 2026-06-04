@@ -2,7 +2,7 @@
   "name": "atlas-ash-starter",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@10.12.4",
+  "packageManager": "pnpm@10.34.1",
   "engines": {
     "node": "24.x"
   },
