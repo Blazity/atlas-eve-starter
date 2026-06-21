@@ -1,15 +1,10 @@
 {
-  "name": "atlas-ash-starter",
+  "name": "atlas-eve-starter",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@10.34.1",
+  "packageManager": "pnpm@11.8.0",
   "engines": {
     "node": "24.x"
-  },
-  "pnpm": {
-    "overrides": {
-      "@types/node": "24.13.0"
-    }
   },
   "scripts": {
     "format": "biome format --write .",
@@ -18,7 +13,7 @@
     "typecheck": "turbo typecheck",
     "test": "turbo test",
     "build": "turbo build",
-    "ash:build": "turbo ash:build",
+    "eve:build": "turbo eve:build",
     "eval": "turbo eval",
     "prepare": "husky"
   },
@@ -26,12 +21,12 @@
     "*.{js,jsx,ts,tsx,json,jsonc,md}": "biome format --write --no-errors-on-unmatched"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.16",
-    "@types/node": "24.13.0",
+    "@biomejs/biome": "2.5.0",
+    "@types/node": "24.13.2",
     "husky": "9.1.7",
-    "lint-staged": "17.0.7",
-    "turbo": "2.9.16",
+    "lint-staged": "17.0.8",
+    "turbo": "2.9.18",
     "typescript": "6.0.3",
-    "vitest": "4.1.8"
+    "vitest": "4.1.9"
   }
 }

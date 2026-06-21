@@ -1,13 +1,13 @@
 # Project Vocabulary
 
-Canonical terms for `atlas-ash-starter`. Use the term in the **Term** column; avoid the synonyms in
+Canonical terms for `atlas-eve-starter`. Use the term in the **Term** column; avoid the synonyms in
 the **Avoid** column so agents do not drift between concepts.
 
-## Ash Surfaces
+## Eve Surfaces
 
 | Term | Meaning | Avoid |
 | --- | --- | --- |
-| App | One Ash app under `apps/*`. | "service" when referring to the Ash app itself |
+| App | One Eve app under `apps/*`. | "service" when referring to the Eve app itself |
 | Tool | Typed deterministic function the agent can call. Lives under `agent/tools/`. | "function call", "action", "command" |
 | Hook | Lifecycle or stream-event callback that seeds/checks context or observes events. Lives under `agent/hooks/`. | "middleware", "interceptor" |
 | Skill | On-demand Markdown guidance. Guidance only; never load-bearing. | "playbook" when meaning a skill file |
@@ -23,11 +23,11 @@ the **Avoid** column so agents do not drift between concepts.
 | Example agent | The replaceable echo app in `apps/example-agent`. | domain-specific example names |
 | Example package | The replaceable shared contract package in `packages/example`. | "plugin" |
 | Deterministic boundary | The line between required code behavior and model-guided behavior. | vague "agent logic" |
-| Opt-in eval | Manual model-backed Ash eval run through `pnpm eval`. | automatic check |
+| Opt-in eval | Manual model-backed Eve eval run through `pnpm eval`. | automatic check |
 
 ## Stability
 
 | Term | Meaning | Avoid |
 | --- | --- | --- |
-| Experimental | `experimental-ash@0.16.2` is still an experimental runtime dependency. | calling it stable |
+| Runtime | `eve` is resolved through pnpm's default minimum-release-age gate. | overriding the gate without review |
 | Generic | The starter should avoid internal company branding and domain-specific fixtures. | internal-only naming |

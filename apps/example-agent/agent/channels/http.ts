@@ -1,10 +1,9 @@
 import { randomUUID } from "node:crypto";
 
 import { exampleRequestSchema } from "@repo/example";
-import { defineChannel, POST } from "experimental-ash/channels";
+import { defineChannel, POST } from "eve/channels";
 
 export default defineChannel({
-  kindHint: "http",
   routes: [
     POST("/echo", async (req, { send }) => {
       const body = await req.json().catch(() => ({}));

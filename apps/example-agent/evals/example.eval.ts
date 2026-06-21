@@ -1,15 +1,13 @@
-import { defineEvalSuite } from "experimental-ash/evals";
-import { Run, Text } from "experimental-ash/evals/scores";
+import { defineEval } from "eve/evals";
+import { includes } from "eve/evals/expect";
 
-export default defineEvalSuite({
-  model: "openai/gpt-5.4-mini",
+export default defineEval({
   description: "Domain-neutral smoke coverage for the example echo agent.",
-  cases: [
-    {
-      id: "echo-short-message",
-      input: "Echo the message: hello",
-      expected: "hello",
-    },
-  ],
-  scores: [Run.didNotFail(), Run.usedTool("echo"), Text.includes()],
+  async test(t) {
+    await t.send("Echo the message: hello");
+
+    t.completed();
+    t.calledTool("echo");
+    t.check(t.reply, includes("hello"));
+  },
 });

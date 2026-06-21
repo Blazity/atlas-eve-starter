@@ -1,9 +1,9 @@
 ---
-name: create-ash-agent
-description: Use when adding a new Ash app, local Ash subagent, or reusable Ash agent package in this repository.
+name: create-eve-agent
+description: Use when adding a new Eve app, local Eve subagent, or reusable Eve agent package in this repository.
 ---
 
-# Create Ash Agent
+# Create Eve Agent
 
 This is a design-first skill. Do not start implementation in the same session unless the user
 explicitly overrides that after reviewing the plan.
@@ -11,7 +11,7 @@ explicitly overrides that after reviewing the plan.
 Start with alignment. Ask the structured questions in `references/questions.md` before proposing
 files unless the answers are already written in the task.
 
-Then choose the smallest Ash surface that matches the requirement:
+Then choose the smallest Eve surface that matches the requirement:
 
 - Skill: optional guidance.
 - Tool: deterministic typed execution.

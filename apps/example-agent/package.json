@@ -7,20 +7,20 @@
     "node": "24.x"
   },
   "scripts": {
-    "dev": "ash dev",
+    "dev": "eve dev",
     "build": "tsc -p tsconfig.json --noEmit",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run",
-    "ash:build": "ash build",
-    "eval": "ash eval --all --skip-report"
+    "eve:build": "eve build",
+    "eval": "eve eval --skip-report"
   },
   "dependencies": {
-    "@ai-sdk/openai": "4.0.0-canary.66",
     "@repo/example": "workspace:*",
-    "experimental-ash": "0.16.2",
+    "ai": "7.0.0-beta.178",
+    "eve": "0.11.8",
     "zod": "4.4.3"
   },
   "devDependencies": {
-    "vitest": "4.1.8"
+    "vitest": "4.1.9"
   }
 }

@@ -2,19 +2,20 @@
 
 ## What This Repo Is
 
-`atlas-ash-starter` is a clean Ash starter monorepo. It demonstrates strict, production-style agent
+`atlas-eve-starter` is a clean Eve starter monorepo. It demonstrates strict, production-style agent
 defaults without embedding a domain-specific app.
 
 The repository is generic. Do not add real customers, credentials, third-party integration data,
 private company records, or internal-only context.
 
-Status: the Ash runtime is currently installed as `experimental-ash@0.16.2`. Treat that package as
-experimental until the framework provides a stable equivalent.
+Status: the Eve runtime is installed from the `eve` package. Let pnpm's default
+minimum-release-age gate choose the installable version; on 2026-06-21 this resolves to
+`eve@0.11.8`.
 
 ## Layout
 
 - `apps/example-agent` — replaceable echo agent used as a smoke example.
-- `packages/example` — replaceable shared contract package used by the example agent. It has no Ash
+- `packages/example` — replaceable shared contract package used by the example agent. It has no Eve
   dependency.
 - `.ai/` — AI Harness artifacts, memory, decisions, plans, and repo-local skills.
 
@@ -36,25 +37,25 @@ Default checks need no model credentials:
 pnpm check
 pnpm typecheck
 pnpm test
-pnpm ash:build
+pnpm eve:build
 ```
 
-`pnpm eval` is opt-in. It runs Ash eval sessions, needs provider credentials, and may incur model
+`pnpm eval` is opt-in. It runs Eve eval sessions, needs provider credentials, and may incur model
 cost. Do not run it as part of routine checks, Husky hooks, or automatic local workflows.
 
 ## Conventions
 
-- pnpm 10 workspace, Turborepo, Node 24.x, TypeScript 6 with `strict`, `verbatimModuleSyntax`,
+- pnpm 11 workspace, Turborepo, Node 24.x, TypeScript 6 with `strict`, `verbatimModuleSyntax`,
   `noUncheckedIndexedAccess`, and `exactOptionalPropertyTypes`.
 - Biome for format and lint: double quotes, trailing commas, 2-space indent, 100 col.
 - Package names use generic starter scopes such as `@repo/example`. Do not brand template packages
   with internal company scopes.
-- Conventional commits with a scope, for example `refactor(starter): simplify ash template`.
+- Conventional commits with a scope, for example `refactor(starter): simplify eve template`.
 
 ## Where To Look First
 
 - `README.md` — quick starter overview and commands.
-- `.ai/skills/create-ash-agent/SKILL.md` — design-first skill for planning Ash agent additions.
+- `.ai/skills/create-eve-agent/SKILL.md` — design-first skill for planning Eve agent additions.
 
 <!-- BEGIN AI-HARNESS: artifact-paths -->
 ## AI Harness Artifact Paths

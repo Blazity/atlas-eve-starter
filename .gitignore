@@ -1,6 +1,6 @@
 node_modules/
 .turbo/
-.ash/
+.eve/
 .output/
 apps/*/.output/
 dist/

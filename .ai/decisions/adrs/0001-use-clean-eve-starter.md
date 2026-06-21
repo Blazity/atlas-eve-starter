@@ -1,4 +1,4 @@
-# ADR: Use A Clean Ash Starter
+# ADR: Use A Clean Eve Starter
 
 ## Status
 
@@ -11,13 +11,13 @@ minimum production-style defaults expected in this repository.
 
 ## Decision
 
-Use a clean Ash starter with:
+Use a clean Eve starter with:
 
 - one replaceable example app;
 - one replaceable shared contract package;
 - strict TypeScript and Biome defaults;
 - deterministic unit tests;
-- opt-in Ash evals;
+- opt-in Eve evals;
 - AI Harness memory, plans, decisions, and skills.
 
 ## Consequences

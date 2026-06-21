@@ -13,13 +13,13 @@
       "dependsOn": ["^build"],
       "outputs": []
     },
-    "ash:build": {
+    "eve:build": {
       "dependsOn": ["^build"],
-      "outputs": [".ash/**"]
+      "outputs": [".eve/**"]
     },
     "eval": {
       "dependsOn": ["^build"],
-      "outputs": [".ash/evals/**"],
+      "outputs": [".eve/evals/**"],
       "cache": false
     }
   }

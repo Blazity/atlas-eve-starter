@@ -1,6 +1,6 @@
-# atlas-ash-starter
+# atlas-eve-starter
 
-✨ A clean Ash starter monorepo for building production-style agents without domain-specific
+✨ A clean Eve starter monorepo for building production-style agents without domain-specific
 baggage.
 
 The promise is simple: start from a small, reviewable template that already encodes practical agent
@@ -19,26 +19,26 @@ company records, or domain fixtures.
   lint-staged are wired from the first commit.
 - 🧪 **Checks that fit daily work**: `pnpm check`, `pnpm typecheck`, and `pnpm test` run without
   model credentials.
-- 🤖 **Ash-native example**: the starter includes one replaceable echo agent with instructions,
+- 🤖 **Eve-native example**: the starter includes one replaceable echo agent with instructions,
   a deterministic tool, an HTTP channel, and a tiny eval.
 - 📦 **Monorepo-ready shape**: the example package shows how to share schemas or contracts without
-  making every package depend on Ash.
+  making every package depend on Eve.
 - 🔐 **Permission-aware workflow**: agent authors are prompted to review tools, channels, auth,
   state, and deterministic boundaries before adding complexity.
-- 💸 **Opt-in evals**: model-backed Ash evals are available as a manual verification layer, not a
+- 💸 **Opt-in evals**: model-backed Eve evals are available as a manual verification layer, not a
   hidden pre-commit cost.
 - 🧹 **Generic by design**: no real customer data, no internal company context, no durable memory
   plugin, no observability plugin, and no production integration assumptions.
 
 ## Stack
 
-- pnpm 10 workspace
+- pnpm 11 workspace
 - Turborepo
 - Node 24.x
 - TypeScript 6
 - Biome
 - Vitest
-- Ash via `experimental-ash`
+- Eve via `eve`
 
 ## Install
 
@@ -58,13 +58,13 @@ pnpm typecheck
 pnpm test
 ```
 
-Pre-PR or pre-publication Ash check:
+Pre-PR or pre-publication Eve check:
 
 ```bash
-pnpm ash:build
+pnpm eve:build
 ```
 
-`pnpm eval` is opt-in. It runs Ash eval sessions, can require provider credentials, and may spend
+`pnpm eval` is opt-in. It runs Eve eval sessions, can require provider credentials, and may spend
 tokens. Do not put it in Husky hooks, pre-commit checks, or automatic local workflows.
 
 ## Workspace
@@ -73,11 +73,11 @@ tokens. Do not put it in Husky hooks, pre-commit checks, or automatic local work
 
 A replaceable echo agent that demonstrates the starter wiring:
 
-- `agent/agent.ts` for the root Ash agent definition
+- `agent/agent.ts` for the root Eve agent definition
 - `agent/instructions.md` for concise agent instructions
 - `agent/tools/echo.ts` for deterministic tool behavior
 - `agent/channels/http.ts` for a local HTTP ingress example
-- `evals/example.eval.ts` for an opt-in Ash eval
+- `evals/example.eval.ts` for an opt-in Eve eval
 
 The HTTP channel uses `auth: null` only because this is a local domain-neutral example. Add an
 explicit auth/session model before adapting the route for production.
@@ -90,7 +90,7 @@ pnpm --filter @repo/example-agent dev
 
 ### `packages/example`
 
-A tiny shared contract package used by the example app. It intentionally has no Ash dependency.
+A tiny shared contract package used by the example app. It intentionally has no Eve dependency.
 Replace it with your own shared schemas or remove it if your starter does not need a local package.
 
 ## Starter Defaults
@@ -100,5 +100,5 @@ Replace it with your own shared schemas or remove it if your starter does not ne
 - Required behavior belongs in tools, hooks, or code, not prompt-only text.
 - Skills are optional guidance and should not be load-bearing.
 - Unit tests cover deterministic code with Vitest.
-- Ash evals are model-backed/manual verification, not routine checks.
+- Eve evals are model-backed/manual verification, not routine checks.
 - Biome is the formatter and linter. Prettier and ESLint are not included.

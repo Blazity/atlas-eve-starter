@@ -2,17 +2,17 @@
 
 ## Purpose
 
-`atlas-ash-starter` is a clean Ash starter monorepo. It exists to demonstrate strict defaults and
+`atlas-eve-starter` is a clean Eve starter monorepo. It exists to demonstrate strict defaults and
 reviewable boundaries for building agents, not to ship a domain-specific demo.
 
 ## Audience
 
-Engineers starting an Ash agent project who want:
+Engineers starting an Eve agent project who want:
 
 - a minimal example app
 - deterministic tool tests
 - explicit package boundaries
-- opt-in Ash evals
+- opt-in Eve evals
 - AI Harness planning and skill support
 - strict formatting, typechecking, and test commands
 
@@ -21,7 +21,7 @@ Engineers starting an Ash agent project who want:
 - `apps/example-agent` — replaceable echo agent.
 - `packages/example` — replaceable shared contract package.
 - `docs/` — starter architecture and agent-creation guidance.
-- `.ai/skills/create-ash-agent` — design-first planning skill.
+- `.ai/skills/create-eve-agent` — design-first planning skill.
 
 ## Out Of Scope
 
@@ -35,5 +35,5 @@ Engineers starting an Ash agent project who want:
 
 ## Status
 
-The runtime dependency is `experimental-ash@0.16.2`. Treat it as experimental until a stable Ash
-package is available.
+The runtime dependency is `eve`. Let pnpm's default minimum-release-age gate choose the installable
+version; do not add release-age excludes without an explicit security review.

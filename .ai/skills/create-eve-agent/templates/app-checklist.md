@@ -8,7 +8,7 @@
 - Add hooks under `agent/hooks/` only for lifecycle or event behavior.
 - Add optional skills under `agent/skills/`.
 - Add subagents under `agent/subagents/<id>/` when a specialist context is needed.
-- Add synthetic fixtures under app-root `data/`, not under unsupported Ash slots.
+- Add synthetic fixtures under app-root `data/`, not under unsupported Eve slots.
 - Add opt-in evals under `evals/`.
 - Document why required steps live in tools, hooks, or shared code instead of prompt-only text.
 - Write an ADR only for durable architectural decisions.

@@ -1,11 +1,11 @@
 ---
-name: audit-ash-agent
-description: Use when reviewing Ash agent changes, auditing permissions/security, or after meaningful changes to agent instructions, tools, channels, subagents, hooks, or shared agent packages.
+name: audit-eve-agent
+description: Use when reviewing Eve agent changes, auditing permissions/security, or after meaningful changes to agent instructions, tools, channels, subagents, hooks, or shared agent packages.
 ---
 
-# Audit Ash Agent
+# Audit Eve Agent
 
-Review Ash agent work for core starter risks. Keep the review practical and evidence-backed.
+Review Eve agent work for core starter risks. Keep the review practical and evidence-backed.
 
 ## Workflow
 
@@ -16,7 +16,7 @@ Review Ash agent work for core starter risks. Keep the review practical and evid
 4. Inspect tool and channel permissions for minimum necessary access.
 5. Inspect subagent boundaries and whether shared extraction is intentional.
 6. Inspect auth, session, and state ownership choices.
-7. Confirm deterministic tests exist and Ash evals remain opt-in.
+7. Confirm deterministic tests exist and Eve evals remain opt-in.
 8. Confirm secrets and generated local state stay out of git.
 
 ## Output

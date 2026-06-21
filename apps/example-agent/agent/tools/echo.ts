@@ -1,5 +1,5 @@
 import { type ExampleRequest, type ExampleResponse, exampleRequestSchema } from "@repo/example";
-import { defineTool } from "experimental-ash/tools";
+import { defineTool } from "eve/tools";
 
 export function createEchoResponse(request: ExampleRequest): ExampleResponse {
   return {

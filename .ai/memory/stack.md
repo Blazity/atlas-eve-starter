@@ -3,8 +3,8 @@
 ## Runtime
 
 - **Node 24.x** — pinned via `.node-version` and `.nvmrc`.
-- **pnpm 10.12.4** — declared in `package.json`; workspace includes `apps/*` and `packages/*`.
-- **Turborepo 2.9.x** — coordinates `typecheck`, `test`, `build`, `ash:build`, and `eval`.
+- **pnpm 11** — declared in `package.json`; workspace includes `apps/*` and `packages/*`.
+- **Turborepo 2.9.x** — coordinates `typecheck`, `test`, `build`, `eve:build`, and `eval`.
 
 ## Language And Tooling
 
@@ -16,8 +16,8 @@
 
 ## Agent Framework
 
-- **`experimental-ash@0.16.2`** — current Ash runtime package.
-- `pnpm ash:build` is the pre-PR/publication Ash framework build check.
+- **`eve`** — current Eve runtime package, resolved through pnpm's default minimum-release-age gate.
+- `pnpm eve:build` is the pre-PR/publication Eve framework build check.
 - `pnpm eval` is opt-in and may need provider credentials or spend tokens.
 
 ## Safe Commands
@@ -26,7 +26,7 @@
 pnpm check
 pnpm typecheck
 pnpm test
-pnpm ash:build
+pnpm eve:build
 ```
 
 ## Opt-In Commands
