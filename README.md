@@ -1,34 +1,44 @@
-# atlas-eve-starter
+<p align="center">
+  <a href="https://github.com/Blazity/atlas">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Blazity/atlas/main/assets/atlas-logo-dark.svg">
+      <img alt="Atlas" src="https://raw.githubusercontent.com/Blazity/atlas/main/assets/atlas-logo-light.svg" width="202">
+    </picture>
+  </a>
+</p>
 
-✨ A clean Eve starter monorepo for building production-style agents without domain-specific
-baggage.
+<h1 align="center">Atlas Eve Starter</h1>
 
-The promise is simple: start from a small, reviewable template that already encodes practical agent
-defaults, then replace the example with your own agent. It gives teams enough structure to move
-quickly without hiding behavior in prompts, bundling plugins, or shipping a domain-specific demo
-that has to be deleted first.
+<p align="center">
+  A clean Eve starter monorepo with Atlas AI documentation, memory, skills, and review gates built in.
+</p>
 
-This repository contains no real customers, credentials, third-party integration data, private
-company records, or domain fixtures.
+---
+
+Atlas Eve Starter is a small, reviewable template for building production-style Eve agents. It gives
+you the starter wiring, repository structure, and AI-facing documentation defaults up front, so your
+team can replace the example agent with real product behavior instead of first inventing the
+project shape.
+
+The repository is initialized with [Atlas](https://github.com/Blazity/atlas), Blazity's
+framework-agnostic AI documentation scaffold. Atlas adds the `.ai/` workspace, shared agent
+instructions, durable memory files, managed skills, artifact paths, and doctor/review gates that help
+coding agents work from explicit project context.
 
 ## Why Use It
 
-- 🧭 **Clear agent boundaries**: app behavior lives under `apps/*/agent`, while shared contracts
+- 🗺️ **Atlas from the first commit**: best-practice AI documentation, memory, skills, and structural
+  gates are already part of the repo.
+- 🤖 **Eve-native setup**: the example app includes a replaceable Eve agent, deterministic tool, HTTP
+  channel, and opt-in eval.
+- 🧪 **Initial eval setup**: model-backed evals are ready for pre-PR or pre-publication confidence
+  checks without becoming a hidden local workflow cost.
+- 🧭 **Reviewable agent boundaries**: app behavior stays under `apps/*/agent`, while shared contracts
   live in explicit `packages/*` imports.
-- 🧰 **Strict starter defaults**: pnpm, Turborepo, TypeScript, Biome, Vitest, Husky, and
-  lint-staged are wired from the first commit.
-- 🧪 **Checks that fit daily work**: `pnpm check`, `pnpm typecheck`, and `pnpm test` run without
-  model credentials.
-- 🤖 **Eve-native example**: the starter includes one replaceable echo agent with instructions,
-  a deterministic tool, an HTTP channel, and a tiny eval.
-- 📦 **Monorepo-ready shape**: the example package shows how to share schemas or contracts without
-  making every package depend on Eve.
-- 🔐 **Permission-aware workflow**: agent authors are prompted to review tools, channels, auth,
-  state, and deterministic boundaries before adding complexity.
-- 💸 **Opt-in evals**: model-backed Eve evals are available as a manual verification layer, not a
-  hidden pre-commit cost.
-- 🧹 **Generic by design**: no real customer data, no internal company context, no durable memory
-  plugin, no observability plugin, and no production integration assumptions.
+- 🧰 **Production-style defaults**: pnpm, Turborepo, TypeScript, Biome, Vitest, Husky, and lint-staged
+  are wired from the start.
+- 📦 **Multi-agent context setup**: Atlas keeps shared instructions, memory, skills, and artifacts
+  in one place for every coding agent in the repo.
 
 ## Stack
 
@@ -39,6 +49,7 @@ company records, or domain fixtures.
 - Biome
 - Vitest
 - Eve via `eve`
+- Atlas AI documentation scaffold
 
 ## Install
 
@@ -65,7 +76,8 @@ pnpm eve:build
 ```
 
 `pnpm eval` is opt-in. It runs Eve eval sessions, can require provider credentials, and may spend
-tokens. Do not put it in Husky hooks, pre-commit checks, or automatic local workflows.
+tokens. Keep it as a manual confidence check instead of a Husky hook, pre-commit check, or automatic
+local workflow.
 
 ## Workspace
 
@@ -88,17 +100,25 @@ Run it locally:
 pnpm --filter @repo/example-agent dev
 ```
 
+### `.ai`
+
+Atlas-managed AI context for the repository:
+
+- `config.json` as the source of truth for artifact paths
+- `LANGUAGE.md` for project vocabulary
+- `memory/` for stable project context
+- `plans/`, `research/`, `decisions/`, and `results/` for agent artifacts
+- `skills/` for setup, review, and Eve-agent guidance
+
 ### `packages/example`
 
-A tiny shared contract package used by the example app. It intentionally has no Eve dependency.
-Replace it with your own shared schemas or remove it if your starter does not need a local package.
+A tiny shared contract package used by the example app. Replace it with your own shared schemas or
+remove it if your starter does not need a local package.
 
-## Starter Defaults
+## What It Includes
 
-- App behavior stays under each app's `agent/` root.
-- Shared code lives in explicit `packages/*` imports.
-- Required behavior belongs in tools, hooks, or code, not prompt-only text.
-- Skills are optional guidance and should not be load-bearing.
-- Unit tests cover deterministic code with Vitest.
-- Eve evals are model-backed/manual verification, not routine checks.
-- Biome is the formatter and linter. Prettier and ESLint are not included.
+- A working Eve example app with local HTTP ingress.
+- A shared package pattern for contracts and schemas.
+- Atlas-managed AI instructions, memory, skills, and artifact paths.
+- Deterministic checks for formatting, linting, types, and tests.
+- Manual Eve build and eval commands for higher-confidence review.

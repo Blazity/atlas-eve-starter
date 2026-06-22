@@ -488,14 +488,6 @@ packages:
   convert-source-map@2.0.0:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
 
-  crossws@0.4.5:
-    resolution: {integrity: sha512-wUR89x/Rw7/8t+vn0CmGDYM9TD6VtARGb0LD5jq2wjtMy1vCP4M+sm6N6TigWeTYvnA8MoW29NqqXD0ep0rfBA==}
-    peerDependencies:
-      srvx: '>=0.11.5'
-    peerDependenciesMeta:
-      srvx:
-        optional: true
-
   crossws@0.4.6:
     resolution: {integrity: sha512-/Wxe9Z007EbJ496j88nToZEvyPZ8PY/wjZJ18Agh/GCA9cYHyLbxtrpdFlFzAw3TV20F0SUYGl0g6PzChbwUrg==}
     peerDependencies:
@@ -865,11 +857,6 @@ packages:
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
     engines: {node: '>=0.10.0'}
-
-  srvx@0.11.15:
-    resolution: {integrity: sha512-iXsux0UcOjdvs0LCMa2Ws3WwcDUozA3JN3BquNXkaFPP7TpRqgunKdEgoZ/uwb1J6xaYHfxtz9Twlh6yzwM6Tg==}
-    engines: {node: '>=20.16.0'}
-    hasBin: true
 
   srvx@0.11.17:
     resolution: {integrity: sha512-43yM4luKfCJamyCMhrUeHUPOrf8TdZe7kN8s5zayZCH5OeprYqi49Aso5ZvHXR4aB+DHaRNO/diNFgZSMNG8Xw==}
@@ -1433,10 +1420,6 @@ snapshots:
 
   convert-source-map@2.0.0: {}
 
-  crossws@0.4.5(srvx@0.11.17):
-    optionalDependencies:
-      srvx: 0.11.17
-
   crossws@0.4.6(srvx@0.11.17):
     optionalDependencies:
       srvx: 0.11.17
@@ -1449,7 +1432,7 @@ snapshots:
 
   env-runner@0.1.14:
     dependencies:
-      crossws: 0.4.5(srvx@0.11.17)
+      crossws: 0.4.6(srvx@0.11.17)
       exsolve: 1.0.8
       httpxy: 0.5.3
       srvx: 0.11.17
@@ -1527,7 +1510,7 @@ snapshots:
   h3@2.0.1-rc.22(crossws@0.4.6(srvx@0.11.17)):
     dependencies:
       rou3: 0.8.1
-      srvx: 0.11.15
+      srvx: 0.11.17
     optionalDependencies:
       crossws: 0.4.6(srvx@0.11.17)
 
@@ -1769,8 +1752,6 @@ snapshots:
       is-fullwidth-code-point: 5.1.0
 
   source-map-js@1.2.1: {}
-
-  srvx@0.11.15: {}
 
   srvx@0.11.17: {}
 
