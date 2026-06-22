@@ -9,7 +9,7 @@ The repository is generic. Do not add real customers, credentials, third-party i
 private company records, or internal-only context.
 
 Status: the Eve runtime is installed from the `eve` package. Let pnpm's default
-minimum-release-age gate choose the installable version; on 2026-06-21 this resolves to
+minimum-release-age gate choose the installable version; on 2026-06-22 this resolves to
 `eve@0.11.8`.
 
 ## Layout
