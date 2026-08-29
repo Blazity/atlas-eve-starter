@@ -25,7 +25,7 @@
     "@types/node": "24.13.2",
     "husky": "9.1.7",
     "lint-staged": "17.0.8",
-    "turbo": "2.9.18",
+    "turbo": "2.10.12",
     "typescript": "6.0.3",
     "vitest": "4.1.9"
   }
