@@ -40,13 +40,13 @@ importers:
         version: link:../../packages/example
       ai:
         specifier: 7.0.0-beta.178
-        version: 7.0.0-beta.178(zod@4.4.3)
+        version: 7.0.0-beta.178(zod@4.6.2)
       eve:
         specifier: 0.11.8
-        version: 0.11.8(ai@7.0.0-beta.178(zod@4.4.3))(vite@8.0.13(@types/node@24.13.2)(yaml@2.9.0))
+        version: 0.11.8(ai@7.0.0-beta.178(zod@4.6.2))(vite@8.0.13(@types/node@24.13.2)(yaml@2.9.0))
       zod:
-        specifier: 4.4.3
-        version: 4.4.3
+        specifier: 4.6.2
+        version: 4.6.2
     devDependencies:
       vitest:
         specifier: 4.1.9
@@ -55,8 +55,8 @@ importers:
   packages/example:
     dependencies:
       zod:
-        specifier: 4.4.3
-        version: 4.4.3
+        specifier: 4.6.2
+        version: 4.6.2
     devDependencies:
       vitest:
         specifier: 4.1.9
@@ -1094,25 +1094,25 @@ packages:
     engines: {node: '>= 14.6'}
     hasBin: true
 
-  zod@4.4.3:
-    resolution: {integrity: sha512-ytENFjIJFl2UwYglde2jchW2Hwm4GJFLDiSXWdTrJQBIN9Fcyp7n4DhxJEiWNAJMV1/BqWfW/kkg71UDcHJyTQ==}
+  zod@4.6.2:
+    resolution: {integrity: sha512-lh5RCAGFa1Cm2hjtNwLQhSs/AsqdWnTQaBER9fEwN/88pSh7KOtJavtBx/0VlkN/uFd61SwYmljLMDAsHlvzBQ==}
 
 snapshots:
 
-  '@ai-sdk/gateway@4.0.0-beta.109(zod@4.4.3)':
+  '@ai-sdk/gateway@4.0.0-beta.109(zod@4.6.2)':
     dependencies:
       '@ai-sdk/provider': 4.0.0-beta.19
-      '@ai-sdk/provider-utils': 5.0.0-beta.49(zod@4.4.3)
+      '@ai-sdk/provider-utils': 5.0.0-beta.49(zod@4.6.2)
       '@vercel/oidc': 3.2.0
-      zod: 4.4.3
+      zod: 4.6.2
 
-  '@ai-sdk/provider-utils@5.0.0-beta.49(zod@4.4.3)':
+  '@ai-sdk/provider-utils@5.0.0-beta.49(zod@4.6.2)':
     dependencies:
       '@ai-sdk/provider': 4.0.0-beta.19
       '@standard-schema/spec': 1.1.0
       '@workflow/serde': 4.1.0
       eventsource-parser: 3.0.8
-      zod: 4.4.3
+      zod: 4.6.2
 
   '@ai-sdk/provider@4.0.0-beta.19':
     dependencies:
@@ -1388,12 +1388,12 @@ snapshots:
 
   '@workflow/serde@4.1.0': {}
 
-  ai@7.0.0-beta.178(zod@4.4.3):
+  ai@7.0.0-beta.178(zod@4.6.2):
     dependencies:
-      '@ai-sdk/gateway': 4.0.0-beta.109(zod@4.4.3)
+      '@ai-sdk/gateway': 4.0.0-beta.109(zod@4.6.2)
       '@ai-sdk/provider': 4.0.0-beta.19
-      '@ai-sdk/provider-utils': 5.0.0-beta.49(zod@4.4.3)
-      zod: 4.4.3
+      '@ai-sdk/provider-utils': 5.0.0-beta.49(zod@4.6.2)
+      zod: 4.6.2
 
   ansi-escapes@7.3.0:
     dependencies:
@@ -1445,9 +1445,9 @@ snapshots:
     dependencies:
       '@types/estree': 1.0.9
 
-  eve@0.11.8(ai@7.0.0-beta.178(zod@4.4.3))(vite@8.0.13(@types/node@24.13.2)(yaml@2.9.0)):
+  eve@0.11.8(ai@7.0.0-beta.178(zod@4.6.2))(vite@8.0.13(@types/node@24.13.2)(yaml@2.9.0)):
     dependencies:
-      ai: 7.0.0-beta.178(zod@4.4.3)
+      ai: 7.0.0-beta.178(zod@4.6.2)
       nitro: 3.0.260610-beta(vite@8.0.13(@types/node@24.13.2)(yaml@2.9.0))
     optionalDependencies:
       vite: 8.0.13(@types/node@24.13.2)(yaml@2.9.0)
@@ -1871,4 +1871,4 @@ snapshots:
   yaml@2.9.0:
     optional: true
 
-  zod@4.4.3: {}
+  zod@4.6.2: {}
