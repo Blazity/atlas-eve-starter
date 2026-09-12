@@ -17,7 +17,7 @@
   "dependencies": {
     "@repo/example": "workspace:*",
     "ai": "7.0.0-beta.178",
-    "eve": "0.11.8",
+    "eve": "0.54.3",
     "zod": "4.4.3"
   },
   "devDependencies": {
