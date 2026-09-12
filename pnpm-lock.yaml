@@ -5,7 +5,7 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  '@types/node': 24.13.2
+  '@types/node': 24.13.4
 
 importers:
 
@@ -15,8 +15,8 @@ importers:
         specifier: 2.5.0
         version: 2.5.0
       '@types/node':
-        specifier: 24.13.2
-        version: 24.13.2
+        specifier: 24.13.4
+        version: 24.13.4
       husky:
         specifier: 9.1.7
         version: 9.1.7
@@ -31,7 +31,7 @@ importers:
         version: 6.0.3
       vitest:
         specifier: 4.1.9
-        version: 4.1.9(@types/node@24.13.2)(vite@8.0.13(@types/node@24.13.2)(yaml@2.9.0))
+        version: 4.1.9(@types/node@24.13.4)(vite@8.0.13(@types/node@24.13.4)(yaml@2.9.0))
 
   apps/example-agent:
     dependencies:
@@ -43,14 +43,14 @@ importers:
         version: 7.0.0-beta.178(zod@4.4.3)
       eve:
         specifier: 0.11.8
-        version: 0.11.8(ai@7.0.0-beta.178(zod@4.4.3))(vite@8.0.13(@types/node@24.13.2)(yaml@2.9.0))
+        version: 0.11.8(ai@7.0.0-beta.178(zod@4.4.3))(vite@8.0.13(@types/node@24.13.4)(yaml@2.9.0))
       zod:
         specifier: 4.4.3
         version: 4.4.3
     devDependencies:
       vitest:
         specifier: 4.1.9
-        version: 4.1.9(@types/node@24.13.2)(vite@8.0.13(@types/node@24.13.2)(yaml@2.9.0))
+        version: 4.1.9(@types/node@24.13.4)(vite@8.0.13(@types/node@24.13.4)(yaml@2.9.0))
 
   packages/example:
     dependencies:
@@ -60,7 +60,7 @@ importers:
     devDependencies:
       vitest:
         specifier: 4.1.9
-        version: 4.1.9(@types/node@24.13.2)(vite@8.0.13(@types/node@24.13.2)(yaml@2.9.0))
+        version: 4.1.9(@types/node@24.13.4)(vite@8.0.13(@types/node@24.13.4)(yaml@2.9.0))
 
 packages:
 
@@ -408,8 +408,8 @@ packages:
   '@types/estree@1.0.9':
     resolution: {integrity: sha512-GhdPgy1el4/ImP05X05Uw4cw2/M93BCUmnEvWZNStlCzEKME4Fkk+YpoA5OiHNQmoS7Cafb8Xa3Pya8m1Qrzeg==}
 
-  '@types/node@24.13.2':
-    resolution: {integrity: sha512-fRa09kZTgu8o71KFcDjUFuc7F+dEbZYZmkI0mg5YBTRs0yMKjYHsq/c0urDKeDb+D5qVgXOdFcuu+DZPKOITwA==}
+  '@types/node@24.13.4':
+    resolution: {integrity: sha512-YJ7EqCstVTzIr0fMr7qul/977en+pQHrfmuKIo6Zr9i75Be21dr3MovcfvGtyvi2HAUrRerWps5sMO9I7WaxDw==}
 
   '@vercel/oidc@3.2.0':
     resolution: {integrity: sha512-UycprH3T6n3jH0k44NHMa7pnFHGu/N05MjojYr+Mc6I7obkoLIJujSWwin1pCvdy/eOxrI/l3uDLQsmcrOb4ug==}
@@ -997,7 +997,7 @@ packages:
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
     peerDependencies:
-      '@types/node': 24.13.2
+      '@types/node': 24.13.4
       '@vitejs/devtools': ^0.1.18
       esbuild: ^0.27.0 || ^0.28.0
       jiti: '>=1.21.0'
@@ -1042,7 +1042,7 @@ packages:
     peerDependencies:
       '@edge-runtime/vm': '*'
       '@opentelemetry/api': ^1.9.0
-      '@types/node': 24.13.2
+      '@types/node': 24.13.4
       '@vitest/browser-playwright': 4.1.9
       '@vitest/browser-preview': 4.1.9
       '@vitest/browser-webdriverio': 4.1.9
@@ -1339,7 +1339,7 @@ snapshots:
 
   '@types/estree@1.0.9': {}
 
-  '@types/node@24.13.2':
+  '@types/node@24.13.4':
     dependencies:
       undici-types: 7.18.2
 
@@ -1354,13 +1354,13 @@ snapshots:
       chai: 6.2.2
       tinyrainbow: 3.1.0
 
-  '@vitest/mocker@4.1.9(vite@8.0.13(@types/node@24.13.2)(yaml@2.9.0))':
+  '@vitest/mocker@4.1.9(vite@8.0.13(@types/node@24.13.4)(yaml@2.9.0))':
     dependencies:
       '@vitest/spy': 4.1.9
       estree-walker: 3.0.3
       magic-string: 0.30.21
     optionalDependencies:
-      vite: 8.0.13(@types/node@24.13.2)(yaml@2.9.0)
+      vite: 8.0.13(@types/node@24.13.4)(yaml@2.9.0)
 
   '@vitest/pretty-format@4.1.9':
     dependencies:
@@ -1445,12 +1445,12 @@ snapshots:
     dependencies:
       '@types/estree': 1.0.9
 
-  eve@0.11.8(ai@7.0.0-beta.178(zod@4.4.3))(vite@8.0.13(@types/node@24.13.2)(yaml@2.9.0)):
+  eve@0.11.8(ai@7.0.0-beta.178(zod@4.4.3))(vite@8.0.13(@types/node@24.13.4)(yaml@2.9.0)):
     dependencies:
       ai: 7.0.0-beta.178(zod@4.4.3)
-      nitro: 3.0.260610-beta(vite@8.0.13(@types/node@24.13.2)(yaml@2.9.0))
+      nitro: 3.0.260610-beta(vite@8.0.13(@types/node@24.13.4)(yaml@2.9.0))
     optionalDependencies:
-      vite: 8.0.13(@types/node@24.13.2)(yaml@2.9.0)
+      vite: 8.0.13(@types/node@24.13.4)(yaml@2.9.0)
     transitivePeerDependencies:
       - '@azure/app-configuration'
       - '@azure/cosmos'
@@ -1610,7 +1610,7 @@ snapshots:
 
   nf3@0.3.17: {}
 
-  nitro@3.0.260610-beta(vite@8.0.13(@types/node@24.13.2)(yaml@2.9.0)):
+  nitro@3.0.260610-beta(vite@8.0.13(@types/node@24.13.4)(yaml@2.9.0)):
     dependencies:
       consola: 3.4.2
       crossws: 0.4.6(srvx@0.11.17)
@@ -1627,7 +1627,7 @@ snapshots:
       unenv: 2.0.0-rc.24
       unstorage: 2.0.0-alpha.7(db0@0.3.4)(ofetch@2.0.0-alpha.3)
     optionalDependencies:
-      vite: 8.0.13(@types/node@24.13.2)(yaml@2.9.0)
+      vite: 8.0.13(@types/node@24.13.4)(yaml@2.9.0)
     transitivePeerDependencies:
       - '@azure/app-configuration'
       - '@azure/cosmos'
@@ -1812,7 +1812,7 @@ snapshots:
       db0: 0.3.4
       ofetch: 2.0.0-alpha.3
 
-  vite@8.0.13(@types/node@24.13.2)(yaml@2.9.0):
+  vite@8.0.13(@types/node@24.13.4)(yaml@2.9.0):
     dependencies:
       lightningcss: 1.32.0
       picomatch: 4.0.4
@@ -1820,14 +1820,14 @@ snapshots:
       rolldown: 1.0.1
       tinyglobby: 0.2.17
     optionalDependencies:
-      '@types/node': 24.13.2
+      '@types/node': 24.13.4
       fsevents: 2.3.3
       yaml: 2.9.0
 
-  vitest@4.1.9(@types/node@24.13.2)(vite@8.0.13(@types/node@24.13.2)(yaml@2.9.0)):
+  vitest@4.1.9(@types/node@24.13.4)(vite@8.0.13(@types/node@24.13.4)(yaml@2.9.0)):
     dependencies:
       '@vitest/expect': 4.1.9
-      '@vitest/mocker': 4.1.9(vite@8.0.13(@types/node@24.13.2)(yaml@2.9.0))
+      '@vitest/mocker': 4.1.9(vite@8.0.13(@types/node@24.13.4)(yaml@2.9.0))
       '@vitest/pretty-format': 4.1.9
       '@vitest/runner': 4.1.9
       '@vitest/snapshot': 4.1.9
@@ -1844,10 +1844,10 @@ snapshots:
       tinyexec: 1.2.4
       tinyglobby: 0.2.17
       tinyrainbow: 3.1.0
-      vite: 8.0.13(@types/node@24.13.2)(yaml@2.9.0)
+      vite: 8.0.13(@types/node@24.13.4)(yaml@2.9.0)
       why-is-node-running: 2.3.0
     optionalDependencies:
-      '@types/node': 24.13.2
+      '@types/node': 24.13.4
     transitivePeerDependencies:
       - msw
 

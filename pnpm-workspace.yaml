@@ -3,4 +3,4 @@ packages:
   - "packages/*"
 
 overrides:
-  "@types/node": "24.13.2"
+  "@types/node": "24.13.4"
