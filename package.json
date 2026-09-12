@@ -2,7 +2,7 @@
   "name": "atlas-eve-starter",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@11.8.0",
+  "packageManager": "pnpm@12.4.1",
   "engines": {
     "node": "24.x"
   },
