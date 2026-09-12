@@ -18,7 +18,7 @@
     "@repo/example": "workspace:*",
     "ai": "7.0.0-beta.178",
     "eve": "0.11.8",
-    "zod": "4.4.3"
+    "zod": "4.6.2"
   },
   "devDependencies": {
     "vitest": "4.1.9"
